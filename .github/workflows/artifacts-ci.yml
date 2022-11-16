@@ -35,16 +35,16 @@ jobs:
           token:  ${{ inputs.github_token }}
       - name: Get repo data
         id: repo_data
-        uses: htec-infra/gha-utils/actions/repo-data@v0.1.0
+        uses: htec-infra/gha-utils/actions/repo-data@v0.3.5
       - name: Build and push container image
         id: container_ops
-        uses: htec-infra/gha-utils/actions/container-ops@v0.1.0
+        uses: htec-infra/gha-utils/actions/container-ops@v0.3.5
         with:
           dockerfile: "${{ inputs.dockerfile }}"
           push_image: "${{ inputs.push_image }}"
           registry_login: "${{ inputs.registry_login }}"
       - name: Comment PR
         id: comment_pr
-        uses: htec-infra/gha-utils/actions/comment-pr@v0.1.0
+        uses: htec-infra/gha-utils/actions/comment-pr@v0.3.5
         with:
           github_token: "${{ inputs.github_token }}"
